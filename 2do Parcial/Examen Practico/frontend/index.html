@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Práctico - Amazon Books Analysis</title>
+    <!-- Carga de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Análisis Estadístico - Amazon Bestsellers</h1>
+        <p>Examen Práctico 2do parcial</p>
+    </header>
+
+    <main class="dashboard">
+        <!-- Tarjetas de Estadísticas -->
+        <section class="stats-container">
+            <div class="stat-card glass">
+                <h3>Precio (USD)</h3>
+                <p>Media: <span id="mean-price" class="highlight">Cargando...</span></p>
+                <p>Mediana: <span id="median-price" class="highlight">Cargando...</span></p>
+                <p>Moda: <span id="mode-price" class="highlight">Cargando...</span></p>
+            </div>
+            <div class="stat-card glass">
+                <h3>Rating</h3>
+                <p>Media: <span id="mean-rating" class="highlight">Cargando...</span></p>
+                <p>Mediana: <span id="median-rating" class="highlight">Cargando...</span></p>
+                <p>Moda: <span id="mode-rating" class="highlight">Cargando...</span></p>
+            </div>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="charts-container">
+            <!-- Frecuencia Absoluta (Barras) -->
+            <div class="chart-box glass">
+                <h2>Frecuencias Absolutas (Categorías)</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Frecuencia Relativa (Pastel / Polar) -->
+            <div class="chart-box glass">
+                <h2>Frecuencias Relativas (Porcentajes)</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Polígono de Frecuencias y Acumuladas -->
+            <div class="chart-box glass full-width">
+                <h2>Frecuencias Acumuladas & Polígono de Frecuencias (Precios)</h2>
+                <div class="canvas-wrapper-large">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
