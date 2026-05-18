@@ -47,7 +47,6 @@ def get_raw_data():
     return data_service.get_raw_data(limit=20)
 
 # Montar el Frontend
-# NOTA: Para arquitectura de 'cero monolitos', montamos estáticos aquí
 # para facilidad de hosting gratuito (Render), pero el frontend y backend no se mezclan.
 frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
 if os.path.exists(frontend_path):
