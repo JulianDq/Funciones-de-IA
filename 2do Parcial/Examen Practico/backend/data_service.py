@@ -74,3 +74,10 @@ def get_statistics():
             }
             
     return stats
+
+def get_raw_data(limit=20):
+    """ Retorna una muestra de los datos para rellenar la tabla """
+    df = get_dataframe()
+    cols = ['Title', 'Author', 'Category', 'Price (USD)', 'Rating']
+    res = df[cols].head(limit).fillna("N/A")
+    return res.to_dict(orient='records')

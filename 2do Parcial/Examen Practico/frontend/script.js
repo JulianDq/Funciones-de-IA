@@ -131,4 +131,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+    // --- CARGAR TABLA DE DATOS ---
+    fetch('/api/data')
+        .then(res => res.json())
+        .then(data => {
+            const tbody = document.querySelector('#data-table tbody');
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.Title}</td>
+                    <td>${row.Author}</td>
+                    <td>${row.Category}</td>
+                    <td>$${row['Price (USD)']}</td>
+                    <td>${row.Rating} ★</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        })
+        .catch(err => console.error("Error cargando tabla:", err));
 });

@@ -35,6 +35,12 @@ def get_statistics():
     """
     return data_service.get_statistics()
 
+@app.get("/api/data")
+def get_raw_data():
+    """
+    Retorna una muestra de los datos crudos para la tabla.
+    """
+    return data_service.get_raw_data(limit=20)
 
 # Montar el Frontend
 # NOTA: Para arquitectura de 'cero monolitos', montamos estáticos aquí
