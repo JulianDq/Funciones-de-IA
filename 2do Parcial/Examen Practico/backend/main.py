@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from backend import data_service
+import sys
+
+# Asegurar que el directorio local esté en sys.path (Corrige errores de Windows/Render)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+import data_service
 
 app = FastAPI(title="Amazon Books Statistics API")
 
