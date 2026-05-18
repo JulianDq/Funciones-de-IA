@@ -79,6 +79,8 @@ def get_raw_data(limit=20):
     """ Retorna una muestra de los datos para rellenar la tabla """
     df = get_dataframe()
     cols = ['Title', 'Author', 'Category', 'Price (USD)', 'Rating']
-    # Remplazar valores nulos con string vacío para evitar que JSON falle al procesar NaNs numéricos
-    res = df[cols].head(limit).fillna("")
+    # Convertimos todo a texto puro para garantizar compatibilidad total en el JSON (evita fallos en Linux/Render)
+    res = df[cols].head(limit).astype(str)
+    # Pandas convierte NaNs a texto 'nan', lo cambiamos a vacío
+    res = res.replace("nan", "")
     return res.to_dict(orient='records')
